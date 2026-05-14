@@ -1,5 +1,7 @@
 # Windows UEFI Bootkit in Rust (Codename: RedLotus)
 
+Blog: https://memn0ps.github.io/rusty-windows-uefi-bootkit/
+
 Introducing a Windows UEFI Bootkit in Rust designed to facilitate the manual mapping of a driver manual mapper before the kernel (`ntoskrnl.exe`) is loaded, effectively bypassing `Driver Signature Enforcement (DSE)`. This bootkit utilizes a UEFI runtime driver (`EFI_RUNTIME_DRIVER`) inspired by the work of [umap by @btbd](https://github.com/btbd/umap/). By employing a straightforward `.data` function pointer hook, the driver manual mapper enables the manual mapping of various Windows kernel drivers via a user-mode program. It is important to acknowledge that the communication method involving `xKdEnumerateDebuggingDevices` and `NtConvertBetweenAuxiliaryCounterAndPerformanceCounter`, originally shared by the legendary [@can1357](https://blog.can.ac/), may be flagged by anti-cheat systems. Hence, it is crucial to emphasize that this project serves as a Proof of Concept (PoC).
 
 It is possible to manually map my [Windows kernel rootkit](https://github.com/memN0ps/rootkit-rs) or [Windows blue-pill hypervisor](https://github.com/memN0ps/hypervisor-rs) with minor modifications.
